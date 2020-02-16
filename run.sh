@@ -5,7 +5,9 @@ DOCKERHASH=9e8e2dd9ea172a500e106a87fb116976e466e14d5cbac4307759961b946977a1
 DOCKERIMAGE=greenaddress/core_builder_for_android@sha256:$DOCKERHASH
 docker pull $DOCKERIMAGE
 
-ARCHS="armv7a-linux-androideabi=32 aarch64-linux-android=64 x86_64-linux-android=64 i686-linux-android=32"
+#ARCHS="armv7a-linux-androideabi=32 aarch64-linux-android=64 x86_64-linux-android=64 i686-linux-android=32"
+ARCHS="armv7a-linux-androideabi=32"
+
 
 build_repo() {
     for TARGETHOST in $ARCHS; do
@@ -14,8 +16,8 @@ build_repo() {
 }
 
 build_repo https://github.com/bitcoin/bitcoin.git 1bc9988993ee84bc814e5a7f33cc90f670a19f6a bitcoin bitcoin --disable-man
-build_repo https://github.com/bitcoinknots/bitcoin.git f8d8a318e8ff7fb396b3102a532c790a7430ed81 bitcoin bitcoin --disable-man
-build_repo https://github.com/elementsproject/elements.git 928727ad6e626ac6ab45bb30867bd3519bc8ab25 elements liquid --enable-liquid
+#build_repo https://github.com/bitcoinknots/bitcoin.git f8d8a318e8ff7fb396b3102a532c790a7430ed81 bitcoin bitcoin --disable-man
+#build_repo https://github.com/elementsproject/elements.git 928727ad6e626ac6ab45bb30867bd3519bc8ab25 elements liquid --enable-liquid
 
 wait
 
